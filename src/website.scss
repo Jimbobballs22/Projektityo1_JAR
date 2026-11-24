@@ -6,18 +6,36 @@
 }
 .left-centered {
   position: absolute;
-  top: 20%;
+  top: 40%;
   left: 25%;
   transform: translate(-50%, -50%);
   color: auto;
   font-size: 24px;
   font-weight: bold;
 }
+.fw-light {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+#services {
+  background-color: #bae6a1;
+  padding: 50px 0;
+  : center;
+}
+#section {
+  padding: 50px 0;
+}
+#news {
+  padding: 50px 0;
+}
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-
-
-
-//Could be used for the news of our imaginary company. But can also be thrown away if we don't need it.
+//code below found in https://freefrontend.com/css-animations/page/2/ as "CSS Scroll-Animated Accordion Vertical Timeline"
 body {
   padding: 2rem 0rem;
   font-family: Poppins;
