@@ -31,10 +31,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 //code below found in https://freefrontend.com/css-animations/page/2/ as "CSS Scroll-Animated Accordion Vertical Timeline"
+//though Lizzy730 modified it to fit the needs and added some of their own code to it
 body {
   padding: 2rem 0rem;
   font-family: Poppins;
@@ -287,3 +288,5 @@ body {
     transform-origin: 0% 0%;
   }
 }
+
+//testing
