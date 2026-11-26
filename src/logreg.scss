@@ -1,0 +1,52 @@
+#login-body {
+    box-sizing: border-box;
+	min-block-size: 100vb;
+	padding: 2rem;
+	font-family: sans-serif;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	color: hsl(261deg 100% 25%);
+	background: linear-gradient(
+		120deg,
+		hsl(125, 49%, 75%),
+		hsl(147, 81%, 28%)
+	);
+}
+
+#register-body {
+    box-sizing: border-box;
+	min-block-size: 100vb;
+	padding: 2rem;
+	font-family: sans-serif;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	color: hsl(261deg 100% 25%);
+	background: linear-gradient(
+		120deg,
+		hsl(125, 49%, 75%),
+		hsl(147, 81%, 28%)
+	);
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+.form {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    background-color: #d2f3c3;
+    position: relative;
+}
+p {
+    font-size: medium;
+}
+.form-label {
+    font-size: medium;
+}
+.form-container {
+    size: 400px;
+}

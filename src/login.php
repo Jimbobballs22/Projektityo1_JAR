@@ -8,7 +8,7 @@ if (isset($_SESSION["kirjautunut"]) && $_SESSION["kirjautunut"] === true) {
 }
 
 // Tietokantaan yhdistys
-require "yhteys.php";
+//require "yhteys.php";
 
 // Muuttujat virhe- ja onnistumisviesteille
 $virheviesti = "";
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($sahkoposti) && !empty($salasana)) {
         // Hakee käyttäjän sähköpostin perusteella (Huomioitu user_id, etunimi ja salasana_hash)
-        $stmt = $yhteys->prepare("SELECT user_id, etunimi, salasana_hash FROM User WHERE sahkoposti = ?");
+        $stmt = $yhteys->prepare("SELECT User_ID, etunimi, salasana_hash FROM User WHERE sahkoposti = ?");
         $stmt->execute([$sahkoposti]);
         $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 // Tallennetaan käyttäjän tiedot istuntoon
                 $_SESSION["kirjautunut"] = true;
-                $_SESSION["user_id"] = $user_data["user_id"];
+                $_SESSION["user_id"] = $user_data["User_ID"];
                 $_SESSION["user_etunimi"] = $user_data["etunimi"];
 
                 $stmt = null;
@@ -68,16 +68,17 @@ $yhteys = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirjautuminen</title>
-    <link rel="stylesheet" href="logstyles.css">
+    <link rel="stylesheet" href="logreg.scss">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-    <div class="container mt-5" style="max-width: 500px;">
+<body id="login-body">
+    <section class="container mt-5">
         
-        <form action="kirjautuminen.php" method="post" class="card p-4 shadow-sm">
-            <h2>Kirjaudu sisään</h2>
-            
+        <form action="kirjautuminen.php" method="post" class="form-container card p-4 shadow-sm">
+            <div class="form-title">
+                <h1>Kirjaudu sisään</h1s>
+            <div>
             <!-- Näyttää punaisen virhelaatikkon, jos kirjautuminen epäonnistuu -->
             <?php if (!empty($virheviesti)): ?>
                 <div class="alert alert-danger" role="alert">
@@ -102,10 +103,10 @@ $yhteys = null;
                 <input type="password" class="form-control" id="password" name="password" placeholder="Syötä salasana" required>
             </div>
             
-            <button type="submit" class="btn btn-primary w-100">Kirjaudu</button>
+            <button type="submit" class="btn btn-success w-100">Kirjaudu</button>
         </form>
         
         <p class="mt-3 text-center">Ei vielä tiliä? <a href="rekisterointi.php">Rekisteröidy tästä!</a></p>
-    </div>
+    </section>
 </body>
 </html>
