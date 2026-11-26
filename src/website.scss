@@ -33,12 +33,20 @@
   align-items: center;
   margin-bottom: 10px;
 }
+.card {
+  background-image: linear-gradient(
+		to top left,
+		hsl(113, 80%, 80%) 0,
+		hsl(155, 100%, 95%)
+	);
+}
+
 
 //code below found in https://freefrontend.com/css-animations/page/2/ as "CSS Scroll-Animated Accordion Vertical Timeline"
 //though Lizzy730 modified it to fit the needs and added some of their own code to it
 body {
   padding: 2rem 0rem;
-  font-family: Poppins;
+  font-family: sans-serif;
   background-image: radial-gradient(rgb(169, 209, 148) 1.3px, rgb(123, 212, 168) 1.3px);
   background-size: 20px 20px;
 }
@@ -289,4 +297,3 @@ body {
   }
 }
 
-//testing
