@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($sahkoposti) && !empty($salasana)) {
         // Hakee käyttäjän sähköpostin perusteella (Huomioitu user_id, etunimi ja salasana_hash)
-        $stmt = $yhteys->prepare("SELECT User_ID, etunimi, salasana_hash FROM User WHERE sahkoposti = ?");
+        $stmt = $yhteys->prepare("SELECT User_ID, User_etunimi, User_sukunimi, USER_salasanahash FROM User WHERE sahkoposti = ?");
         $stmt->execute([$sahkoposti]);
         $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -40,14 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 // Tallennetaan käyttäjän tiedot istuntoon
                 $_SESSION["kirjautunut"] = true;
-                $_SESSION["user_id"] = $user_data["User_ID"];
-                $_SESSION["user_etunimi"] = $user_data["etunimi"];
+                $_SESSION["User_ID"] = $user_data["User_ID"];
+                $_SESSION["User_etunimi"] = $user_data["etunimi"];
+                $_SESSION["User_sukunimi"] = $user_data["sukunimi"];
 
                 $stmt = null;
                 $yhteys = null;
 
                 // Vie käyttäjän etusivulle kirjautumisen jälkeen
-                header("Location: käyttöliittymä.html");
+                header("Location: Mainpage.html");
                 exit();
             } else {
                 $virheviesti = "Virhe: Väärä salasana!";
@@ -68,14 +69,14 @@ $yhteys = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirjautuminen</title>
-    <link rel="stylesheet" href="logreg.scss">
+    <link rel="stylesheet" href="logreg.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body id="login-body">
     <section class="container mt-5">
         
-        <form action="kirjautuminen.php" method="post" class="form-container card p-4 shadow-sm">
+        <form action="kirjautuminen.php" method="post" class="form-container card p-4 shadow-sm w-50 mx-auto">
             <div class="form-title">
                 <h1>Kirjaudu sisään</h1s>
             <div>
@@ -107,6 +108,12 @@ $yhteys = null;
         </form>
         
         <p class="mt-3 text-center">Ei vielä tiliä? <a href="rekisterointi.php">Rekisteröidy tästä!</a></p>
+    </section>
+    <br><br>
+    <section>
+        <div class="card">
+
+        </div>
     </section>
 </body>
 </html>
