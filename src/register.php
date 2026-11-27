@@ -90,7 +90,7 @@ $yhteys = null;
         <div class="col-12 d-flex justify-content-center">
           <button type="submit" class="btn btn-success">Sign in</button>
         </div>
-        <p class="mt-3 text-center">Onko sinulla jo tili? <a href="kirjautuminen.php">Kirjaudu tästä!</a></p>
+        <p class="mt-3 text-center">Onko sinulla jo tili? <a href="login.php">Kirjaudu tästä!</a></p>
       </form>
       
     </div>
