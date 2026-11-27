@@ -3,7 +3,7 @@ session_start();
 
 // Jos käyttäjä on jo kirjautunut sisään = Heitetään suoraan etusivulle
 if (isset($_SESSION["kirjautunut"]) && $_SESSION["kirjautunut"] === true) {
-    header("Location: käyttöliittymä.html");
+    header("Location: Mainpage.html");
     exit();
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user_data) {
             // Verifioi salasanan vertaamalla sitä tietokannan hashiin
-            if (password_verify($salasana, $user_data["salasana_hash"])) {
+            if (password_verify($salasana, $user_data["USER_salasanahash"])) {
                 
                 // Tallennetaan käyttäjän tiedot istuntoon
                 $_SESSION["kirjautunut"] = true;
