@@ -19,6 +19,9 @@
 #register-body {
     box-sizing: border-box;
 	min-block-size: 100vb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 2rem;
 	font-family: sans-serif;
 	font-size: 1.4rem;
@@ -52,5 +55,9 @@ p {
 }
 .form-container {
     width: 350px;
+    max-width: 100%;
+}
+#register {
+	width: 450px;
     max-width: 100%;
 }

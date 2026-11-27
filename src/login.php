@@ -8,7 +8,7 @@ if (isset($_SESSION["kirjautunut"]) && $_SESSION["kirjautunut"] === true) {
 }
 
 // Tietokantaan yhdistys
-//require "yhteys.php";
+require "yhteys.php";
 
 // Muuttujat virhe- ja onnistumisviesteille
 $virheviesti = "";
