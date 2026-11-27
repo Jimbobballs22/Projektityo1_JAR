@@ -18,7 +18,9 @@
                 </div>
 
                 <!--Below here should be coded with php the logged in person's name-->
-
+                <div>
+                    <h2>Terve [user]!</h2>
+                </div>
                 <!--above this line here should be coded with php the logged in person's name-->
 
                 <div class="col-md-12">
