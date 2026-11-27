@@ -74,12 +74,13 @@ $yhteys = null;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body id="login-body">
-    <section class="container mt-5">
+    <section class="container">
         
-        <form action="kirjautuminen.php" method="post" class="form-container card p-4 shadow-sm w-50 mx-auto">
-            <div class="form-title">
-                <h1>Kirjaudu sisään</h1s>
-            <div>
+        <form action="kirjautuminen.php" method="post" class="form-container card p-4 mx-auto">
+            <div class="form-title mx-auto">
+                <h1>Kirjaudu sisään</h1>
+            </div>
+
             <!-- Näyttää punaisen virhelaatikkon, jos kirjautuminen epäonnistuu -->
             <?php if (!empty($virheviesti)): ?>
                 <div class="alert alert-danger" role="alert">
@@ -96,24 +97,19 @@ $yhteys = null;
             
             <div class="mb-3">
                 <label for="sahkoposti" class="form-label">Sähköpostiosoite:</label>
-                <input type="email" class="form-control" id="sahkoposti" name="sahkoposti" placeholder="esimerkki@sähköposti.fi" required>
+                <input type="email" class="form-control" id="sahkoposti" name="sahkoposti" placeholder="example@email.com" required>
             </div>
             
             <div class="mb-3">
                 <label for="password" class="form-label">Salasana:</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Syötä salasana" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
             </div>
             
             <button type="submit" class="btn btn-success w-100">Kirjaudu</button>
+            <br>
+            <p class="mt-3 text-center">Ei vielä tiliä? <a href="rekisterointi.php">Rekisteröidy tästä!</a></p>
         </form>
         
-        <p class="mt-3 text-center">Ei vielä tiliä? <a href="rekisterointi.php">Rekisteröidy tästä!</a></p>
-    </section>
-    <br><br>
-    <section>
-        <div class="card">
-
-        </div>
     </section>
 </body>
 </html>
